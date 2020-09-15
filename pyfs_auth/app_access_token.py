@@ -8,8 +8,8 @@ from .basetoken import BaseToken
 
 
 class AppAccessToken(BaseToken):
-    def __init__(self, appid=None, secret=None, ticket=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600):
-        super(AppAccessToken, self).__init__(appid=appid, secret=secret, ticket=ticket, storage=storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds, token_type='app_access_token')
+    def __init__(self, appid=None, secret=None, ticket=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600):
+        super(AppAccessToken, self).__init__(appid=appid, secret=secret, ticket=ticket, token=token, storage=storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds, token_type='app_access_token')
         # 获取 app_access_token（应用商店应用）, Refer: https://open.feishu.cn/document/ukTMukTMukTM/uEjNz4SM2MjLxYzM
         self.APP_ACCESS_TOKEN = self.OPEN_DOMAIN + '/open-apis/auth/v3/app_access_token/'
 
