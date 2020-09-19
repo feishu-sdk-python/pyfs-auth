@@ -8,8 +8,8 @@ from .basetoken import BaseToken
 
 
 class TenantAccessTokenInternal(BaseToken):
-    def __init__(self, appid=None, secret=None, ticket=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600):
-        super(TenantAccessTokenInternal, self).__init__(appid=appid, secret=secret, ticket=ticket, token=token, storage=storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds, token_type='tenant_access_token_internal')
+    def __init__(self, appid=None, secret=None, ticket=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600, token_type='tenant_access_token_internal'):
+        super(TenantAccessTokenInternal, self).__init__(appid=appid, secret=secret, ticket=ticket, token=token, storage=storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds, token_type=token_type)
         # 获取 tenant_access_token（企业自建应用）, Refer: https://open.feishu.cn/document/ukTMukTMukTM/uIjNz4iM2MjLyYzM
         self.TENANT_ACCESS_TOKEN_INTERNAL = self.OPEN_DOMAIN + '/open-apis/auth/v3/tenant_access_token/internal/'
 
