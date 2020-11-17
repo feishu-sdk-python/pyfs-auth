@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import time
-
-from pywe_exception import WeChatException
-
 from .basetoken import BaseToken
 
 

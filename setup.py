@@ -20,7 +20,7 @@ setup(
 
     packages=['pyfs_auth'],
     py_modules=[],
-    install_requires=['pyfs-base>=1.0.2', 'pywe-exception', 'pywe-storage'],
+    install_requires=['pyfs-base>=1.0.3', 'pywe-exception', 'pywe-storage'],
 
     classifiers=[
         "License :: OSI Approved :: BSD License",
