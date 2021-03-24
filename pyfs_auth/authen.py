@@ -12,7 +12,7 @@ class Authen(AppAccessToken):
     def get_userinfo(self, code=None, grant_type='authorization_code', appid=None, secret=None, ticket=None, token=None, storage=None):
         # Update params
         self.update_params(appid=appid, secret=secret, ticket=ticket, storage=storage)
-        # Fetch sessionInfo
+        # Token
         token = final_app_access_token(self, appid=appid, secret=secret, ticket=ticket, token=token, storage=storage)
         return self.post(self.AUTHEN_V1_ACCESS_TOKEN, data={
             'app_access_token': token,
