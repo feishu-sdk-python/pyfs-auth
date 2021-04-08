@@ -30,7 +30,7 @@ class BaseToken(BaseFeishu):
 
     @property
     def access_info_key(self):
-        return 'feishu:{0}:{1}:info'.format(self.appid, self.token_type)
+        return 'feishu:{0}:{1}:{2}:info'.format(self.appid, self.token_type, self.tenant_key or '')
 
     def update_params(self, appid=None, secret=None, ticket=None, tenant_key=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600, token_type=''):
         self.appid = appid or self.appid
