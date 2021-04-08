@@ -49,7 +49,7 @@ class AppAccessTokenInternal(BaseToken):
         return self.__fetch_access_token(appid, secret, ticket, storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds)
 
     def final_access_token(self, cls=None, appid=None, secret=None, ticket=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600):
-        return token or self.access_token(appid or cls.appid, secret or cls.secret, ticket or cls.ticket, storage=storage or cls.storage, token_fetched_func=token_fetched_func or cls.token_fetched_func, refresh_left_seconds=refresh_left_seconds or cls.refresh_left_seconds)
+        return token or cls.token or self.access_token(appid or cls.appid, secret or cls.secret, ticket or cls.ticket, storage=storage or cls.storage, token_fetched_func=token_fetched_func or cls.token_fetched_func, refresh_left_seconds=refresh_left_seconds or cls.refresh_left_seconds)
 
 
 token = AppAccessTokenInternal()

@@ -4,10 +4,11 @@ import time
 
 from pywe_exception import WeChatException
 
-from app_access_token import AppAccessToken, final_app_access_token
+from .app_access_token import final_app_access_token
+from .basetoken import BaseToken
 
 
-class TenantAccessToken(AppAccessToken):
+class TenantAccessToken(BaseToken):
     def __init__(self, appid=None, secret=None, ticket=None, tenant_key=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600, token_type='tenant_access_token'):
         super(TenantAccessToken, self).__init__(appid=appid, secret=secret, ticket=ticket, tenant_key=tenant_key, token=token, storage=storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds, token_type=token_type)
         # 获取 tenant_access_token（应用商店应用）, Refer: https://open.feishu.cn/document/ukTMukTMukTM/uMjNz4yM2MjLzYzM
@@ -50,7 +51,7 @@ class TenantAccessToken(AppAccessToken):
         return self.__fetch_access_token(appid, secret, ticket, tenant_key, storage, token_fetched_func=token_fetched_func, refresh_left_seconds=refresh_left_seconds)
 
     def final_access_token(self, cls=None, appid=None, secret=None, ticket=None, tenant_key=None, token=None, storage=None, token_fetched_func=None, refresh_left_seconds=6600):
-        return token or self.access_token(appid or cls.appid, secret or cls.secret, ticket or cls.ticket, tenant_key or cls.tenant_key, storage=storage or cls.storage, token_fetched_func=token_fetched_func or cls.token_fetched_func, refresh_left_seconds=refresh_left_seconds or cls.refresh_left_seconds)
+        return token or cls.token or self.access_token(appid or cls.appid, secret or cls.secret, ticket or cls.ticket, tenant_key or cls.tenant_key, storage=storage or cls.storage, token_fetched_func=token_fetched_func or cls.token_fetched_func, refresh_left_seconds=refresh_left_seconds or cls.refresh_left_seconds)
 
 
 token = TenantAccessToken()
