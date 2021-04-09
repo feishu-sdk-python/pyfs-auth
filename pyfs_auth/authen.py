@@ -23,3 +23,4 @@ class Authen(AppAccessToken):
 
 authen = Authen()
 get_userinfo = authen.get_userinfo
+authen_get_userinfo = authen.get_userinfo

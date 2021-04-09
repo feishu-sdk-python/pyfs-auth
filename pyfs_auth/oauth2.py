@@ -32,3 +32,4 @@ class OAuth2(BaseFeishu):
 oauth2 = OAuth2()
 get_access_info = oauth2.get_access_info
 get_userinfo = oauth2.get_userinfo
+oauth2_get_userinfo = oauth2.get_userinfo
