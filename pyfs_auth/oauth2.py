@@ -19,14 +19,12 @@ class OAuth2(BaseFeishu):
             'client_secret': client_secret or secret,
             'code': code,
             'code_verifier': code_verifier,
-        }, content_type='application/x-www-form-urlencoded')
+        }, data_to_json_str=False, headers={'Content-Type': 'application/x-www-form-urlencoded'})
 
     def get_userinfo(self, access_token=None, code=None, grant_type='authorization_code', appid=None, client_id=None, secret=None, client_secret=None, code_verifier=None):
         if not access_token:
-            access_token = self.get_access_info(code=code, grant_type=grant_type, appid=appid, client_id=client_id, secret=secret, client_secret=client_secret, code_verifie=code_verifier).get('access_token')
-        return self.post(self.SUITE_PASSPORT_OAUTH_USERINFO, data={
-            'token': access_token,
-        })
+            access_token = self.get_access_info(code=code, grant_type=grant_type, appid=appid, client_id=client_id, secret=secret, client_secret=client_secret, code_verifier=code_verifier).get('access_token')
+        return self.get(self.SUITE_PASSPORT_OAUTH_USERINFO, token=access_token)
 
 
 oauth2 = OAuth2()
